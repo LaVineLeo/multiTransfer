@@ -1,0 +1,10 @@
+@import '~antd/dist/antd.css';
+
+.App {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+iframe {
+  pointer-events: none;
+}
