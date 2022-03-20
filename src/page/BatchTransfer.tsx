@@ -52,7 +52,6 @@ function SetInfo(prop: ISetInfo) {
   const bep20Contract = useERC20(address, false);
 
   useEffect(() => {
-    // 0x665C98C7352247d6065A76a60757135851667B66
     const getErc20Info = async () => {
       if (bep20Contract as Erc20) {
         try {
@@ -95,11 +94,6 @@ function SetInfo(prop: ISetInfo) {
     ) : (
       ''
     );
-    //   return addressList.filter((item,index) => {
-    //     console.log(isAddress(item), item);
-
-    //     return {address:item,index} isAddress(item) !== item && item !== '';
-    //   });
   }, [addressList]);
 
   return (
@@ -167,9 +161,6 @@ function SetInfo(prop: ISetInfo) {
           <TextArea
             className="text-sm"
             bordered={false}
-            onPressEnter={(e) => {
-              console.log(e);
-            }}
             value={addressInput}
             onChange={(e) => {
               setAddressInput(e.target.value);
@@ -185,19 +176,6 @@ function SetInfo(prop: ISetInfo) {
         </div>
       </div>
       {errAddressList}
-      {/* {errAddressList.length ? (
-        <div className="border rounded-md border-red-500 text-red-500 mt-4 px-4 py-2">
-          {errAddressList.map((item, index) => {
-            return (
-              <div key={index} className="">
-                <div>
-                  第{index + 1}行 {item} 不是一个有效的钱包地址
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      ) : null} */}
 
       <div className="">
         <div className="my-4 flex justify-between items-center">
@@ -348,8 +326,6 @@ function TransferDetail(prop: ITransferDetail) {
     }
     const response = await bep20Contract.allowance(account, getMultiTransferAddress(chainId));
     const currentAllowance = ethersToBigNumber(response);
-    console.log(currentAllowance, 'currentAllowance');
-
     setIsApproved(currentAllowance.gt(0));
   };
   useEffect(() => {
@@ -364,7 +340,6 @@ function TransferDetail(prop: ITransferDetail) {
   const getAllAmount = useMemo(() => {
     return new BigNumber(getTransferList.length).times(amount).toString();
   }, [getTransferList]);
-  console.log(getAllAmount, 'getAllAmount');
 
   return (
     <div>
@@ -506,9 +481,7 @@ export default function BatchTransfer() {
   };
 
   useEffect(() => {
-    console.log('jinlai');
     setStep(0);
-
     if (DEFAULT_TOKEN_LIST[chainId]) {
       let _tokenList = [...DEFAULT_TOKEN_LIST[chainId]];
       _tokenList.sort((t1, t2) => {
