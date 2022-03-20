@@ -1,6 +1,5 @@
 import useActiveWeb3React from './useActiveWeb3React';
 import { useMemo } from 'react';
-import { getBep20Contract, getBep20TransferContract } from '@/utils/contractHelp';
 import { getProviderOrSigner } from '../utils';
 import { AddressZero } from '@ethersproject/constants';
 import { Contract } from '@ethersproject/contracts';
