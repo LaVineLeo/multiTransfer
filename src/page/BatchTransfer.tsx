@@ -524,8 +524,8 @@ export default function BatchTransfer() {
   }, [chainId]);
   return (
     <div className="text-primary bg-white mx-auto max-w-900  p-4 my-6" style={{ width: '90%' }}>
-      <div className="text-red-500 mb-4">本批量转账仅支持BSC,BSC-TEST,RINKEBY,KOVAN网络 代码都已开源</div>
-      <div className="text-red-500 mb-4">支持自定义币种转账 输入合约地址即可</div>
+      <div className="text-red-500">本批量转账仅支持BSC,BSC-TEST,RINKEBY,KOVAN网络 前端 合约 代码都已开源</div>
+      <div className="text-red-500 mb-4">转账不收取额外手续费 支持自定义币种转账 输入合约地址即可 </div>
       <div className="text-base text-primary font-bold">批量发送代币</div>
       {setp == 0 ? (
         <SetInfo
